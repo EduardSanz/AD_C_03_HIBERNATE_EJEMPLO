@@ -11,11 +11,12 @@ import java.io.Serializable;
 @Table(name="alumnos")
 public class Alumno implements Serializable {
 
+    @Id
+    private int id;
     @Column
     private String nombre;
     @Column
     private String apellidos;
-    @Id
     @Column(name = "dni")
     private String dni;
 
@@ -60,5 +61,13 @@ public class Alumno implements Serializable {
                 ", apellidos='" + apellidos + '\'' +
                 ", dni='" + dni + '\'' +
                 '}';
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

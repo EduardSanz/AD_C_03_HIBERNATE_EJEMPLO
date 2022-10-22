@@ -13,6 +13,8 @@
         <property name="show_sql">true</property>
 
         <mapping class="com.cieep.modelos.Alumno"/>
+
+        <!-- TENGO QUE PONER UNO DE LOS DOS -->
         <mapping resource="com/cieep/modelos/xml/alumno.hbm.xml" />
 
     </session-factory>

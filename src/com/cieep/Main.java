@@ -17,15 +17,15 @@ public class Main {
         session.beginTransaction();
 
         // CREATE
-//        session.persist(alumno);
+        session.persist(alumno);
         // READ
-        Alumno a = session.get(Alumno.class, "123456");
+/*        Alumno a = session.get(Alumno.class, 1);
         System.out.println(a.toString());
         // UPDATE
         a.setNombre("Eduard");
         session.merge(a);
         // DELETE
-        session.remove(a);
+        session.remove(a);*/
 
 
         // Lanza las instrucciones SQL
