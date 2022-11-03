@@ -1,17 +1,17 @@
 package com.cieep.modelos;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="alumnos")
 public class Alumno implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column
     private String nombre;
@@ -20,10 +20,14 @@ public class Alumno implements Serializable {
     @Column(name = "dni")
     private String dni;
 
+    @OneToMany(mappedBy = "alumno", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Contacto> contactos;
+
     public Alumno(String nombre, String apellidos, String dni) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.dni = dni;
+        this.contactos = new ArrayList<>();
     }
 
     public Alumno() {
@@ -69,5 +73,13 @@ public class Alumno implements Serializable {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public List<Contacto> getContactos() {
+        return contactos;
+    }
+
+    public void setContactos(List<Contacto> contactos) {
+        this.contactos = contactos;
     }
 }
